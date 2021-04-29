@@ -135,8 +135,6 @@ const escapes = [
     }
 ];
 
-
-
 function escapeThis(str, esc, data) {
     esc.forEach(function (d) {
         if (d.patterrn === "\\this") {

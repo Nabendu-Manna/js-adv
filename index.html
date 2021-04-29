@@ -30,9 +30,7 @@
         <div>
             <center>
                 <textarea id="inputStr" spellcheck="false" placeholder="//                    input" cols="70"rows="10" v-model="inputString"></textarea>
-                <textarea id="outs" cols="70" rows="10"placeholder="//                    output" spellcheck="false">
-                {{ outputString }}
-                </textarea>
+                <textarea id="outs" cols="70" rows="10"placeholder="//                    output" spellcheck="false">{{ outputString }}</textarea>
                 <br />
             
                 <label>
@@ -61,7 +59,7 @@
                         <input type="text" id="remThese" v-model="remThese" /><br />
                     </label>
                     <label>splitter:
-                        <input type="text" id="splitter" v-bind:value="currentCase.splitter" />
+                        <input type="text" id="splitter" v-model="currentCase.splitter" v-bind:value="currentCase.splitter" />
                     </label> 
                     <label>Trim (remove blank Space):
                         <input type="checkbox" id="trimm" v-model="currentCase.trimm" />
