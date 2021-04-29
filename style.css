@@ -1,0 +1,58 @@
+.condiDiv input,
+.condiDiv textarea {
+
+    vertical-align: middle;
+    margin        : 10px;
+}
+
+.condiDiv {
+    width: 800px;
+    float: left;
+}
+
+#escapSeqdiv code {
+    background-color: rgba(254, 58, 58, 0.21);
+    color           : #b94bc6;
+    padding         : 5px;
+    font-size       : 15px;
+    margin-top      : 20px;
+    margin-bottom   : 20px;
+}
+
+.quoteCode {
+    font-size       : 15px;
+    margin          : 10px;
+    line-height     : 30px;
+    background-color: aqua;
+}
+
+.quoteCode #quote:before {
+    content: "//";
+}
+
+.quoteCode #quote:after {
+    content: attr(q);
+    color  : #430253;
+}
+
+.quoteCode #author:after {
+    content: attr(a);
+    color  : #860025;
+}
+
+.quoteCode #qt:after {
+    content: " - ";
+}
+
+#genBtn {
+    margin       : 10px;
+    height       : 30px;
+    border-radius: 3px;
+    font-size    : 20px;
+    cursor       : pointer;
+}
+
+#escapSeqdiv {
+    float     : left;
+    text-align: justify;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- <center>
+        <p class="quoteCode">
+            <code class="quoteCode">
+            <i id="qt"><span id="quoete"></span></i> <span id="ath"><span id="author"></span></span>
+          </code>
+        </p>
+    </center> -->
+
+    <br>
+    <hr>
+    <br>
+
+    <div id="form1">
+        <div>
+            <center>
+                <textarea id="inputStr" spellcheck="false" placeholder="//                    input" cols="70"rows="10" v-model="inputString"></textarea>
+                <textarea id="outs" cols="70" rows="10"placeholder="//                    output" spellcheck="false">
+                {{ outputString }}
+                </textarea>
+                <br />
+            
+                <label>
+                    Select Template:
+                    <!-- <select id="Chosen"></select> -->
+                    <select id="Chosen" v-model="currentCase" v-on:change="changeCase">
+                        <option v-for="eachCase in cases" v-bind:value="eachCase" v-bind:workbench-cond='JSON.stringify(eachCase)'>{{ eachCase.name }}</option>
+                    </select>
+                </label>
+                <p>{{ currentCase.name }}</p>
+                <br/>
+                <input type="button" value="Generate String" v-on:click="generateString">
+            </center>
+
+            <!--
+              <label>Remove: <code>separate by blank spaces :Like- [ @</code> <input type="text" id="removeThese"/></label><br />
+              <label>Remove CR:<input type="checkbox" id="remCR"/></label><br />
+              <label>Remove LF:<input type="checkbox" id="remLF"/></label><br />
+              <label>Remove Tab:<input type="checkbox" id="remTAB"/></label>
+                  -->
+            <center>
+                <div class="condiDiv">
+                    <label>
+                        <input type="checkbox" id="ifRem" v-model="ifRem" /> Remove These character (separate by a blank
+                        space):
+                        <input type="text" id="remThese" v-model="remThese" /><br />
+                    </label>
+                    <label>splitter:
+                        <input type="text" id="splitter" v-bind:value="currentCase.splitter" />
+                    </label> 
+                    <label>Trim (remove blank Space):
+                        <input type="checkbox" id="trimm" v-model="currentCase.trimm" />
+                    </label>
+                    <br />
+                    <label>
+                        Each Line PreFIX:
+                        <textarea cols="30" rows="5" v-model="currentCase.defaultEachLinePrefix">
+                            {{ currentCase.defaultEachLinePrefix }}
+                        </textarea>
+                    </label>
+                    <br />
+                    <label>
+                        Each Line SufFix:
+                        <textarea cols="30" rows="2" v-model="currentCase.defaultEachLineSuffix">
+                            {{ currentCase.defaultEachLineSuffix }}
+                        </textarea>
+                    </label>
+                    <br />
+                    <label>
+                        Whole Doc PreFIX:
+                        <textarea cols="30" rows="2" v-model="currentCase.defaultWholeDocPrefix">
+                            {{ currentCase.defaultWholeDocPrefix }}
+                        </textarea>
+                    </label>
+                    <br />
+                    <label>
+                        Whole Doc SufFix:
+                        <textarea cols="30" rows="2" v-model="currentCase.defaultWholeDocSuffix">
+                            {{ currentCase.defaultWholeDocSuffix }}
+                        </textarea>
+                    </label>
+                    <br />
+                </div>
+
+                <div id="escapSeqdiv">
+                </div>
+                <br/>
+            </center>
+        </div>
+    </div>
+
+    <script>
+        app.mount('#form1')
+    </script>
+</body>
+
+</html>
